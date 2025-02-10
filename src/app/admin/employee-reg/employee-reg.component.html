@@ -1,0 +1,74 @@
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-8">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Employee Registration</h6>
+                <form (ngSubmit)="onSubmit()" #employeeForm="ngForm" novalidate>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Employee Name</label>
+                        
+                        <input type="text" [(ngModel)]="employeeData.employee_name" name="employee_name" class="form-control"
+                        id="floatingInput" placeholder="-- employee name --" required #employee_nameRef="ngModel">
+                        <div *ngIf="employee_nameRef.invalid && employee_nameRef.touched" class="text-danger mt-1">
+                        Employee name is required.
+                        </div>
+                            
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Employee Email</label>
+                        
+                        <input type="text" [(ngModel)]="employeeData.employee_email" placeholder="-- employee email --" name="employee_email" class="form-control"
+                        id="floatingInput"  required #employee_emailRef="ngModel">
+                        <div *ngIf="employee_emailRef.invalid && employee_emailRef.touched" class="text-danger mt-1">
+                        Employee email is required.
+                        </div>
+                            
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Job Position</label>
+                        
+                        <input type="text" [(ngModel)]="employeeData.job_position" placeholder="-- job position --" name="job_position" class="form-control"
+                        id="floatingInput"  required #job_positionRef="ngModel">
+                        <div *ngIf="job_positionRef.invalid && job_positionRef.touched" class="text-danger mt-1">
+                        Employee position is required.
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Employee Contactno</label>
+                        
+                            <input type="text" [(ngModel)]="employeeData.employee_contactno" placeholder="-- employee contact --" name="employee_contactno" class="form-control"
+                            id="floatingInput"  required #employee_contactnoRef="ngModel">
+                            <div *ngIf="employee_contactnoRef.invalid && employee_contactnoRef.touched" class="text-danger mt-1">
+                            Employee contact is required.
+                            </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                       
+                        <input type="text" [(ngModel)]="employeeData.username" placeholder="-- username --" name="username" class="form-control"
+                        id="floatingInput"  required #usernameRef="ngModel">
+                        <div *ngIf="usernameRef.invalid && usernameRef.touched" class="text-danger mt-1">
+                        Employee username is required.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="text" [(ngModel)]="employeeData.password" placeholder="-- password --" name="password" class="form-control"
+                        id="floatingInput"  required #passwordRef="ngModel">
+                        <div *ngIf="passwordRef.invalid && passwordRef.touched" class="text-danger mt-1">
+                        Employee username is required.
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+                    </div>
+                    <button type="submit" [disabled]="employeeForm.invalid" class="btn btn-primary">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Form End -->

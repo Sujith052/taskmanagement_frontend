@@ -1,0 +1,27 @@
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-8">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Work Registration</h6>
+                <form (ngSubmit)="onSubmit()" #workForm="ngForm" novalidate>
+                    <div class="mb-3">
+                        
+                        <input type="text" [(ngModel)]="workData.projectname" placeholder="-- Enter project name --" name="projectname" class="form-control"
+                        id="floatingInput" required #workRef="ngModel">
+                        <div *ngIf="workRef.invalid && workRef.touched" class="text-danger mt-1">
+                        Work name is required.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+                    </div>
+                    <button type="submit" [disabled]="workForm.invalid" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Form End -->

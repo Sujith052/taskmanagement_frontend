@@ -1,0 +1,66 @@
+<!-- Table Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="container-fluid pt-4 px-4">
+                    <h6 class="mb-4">Filter</h6>
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <div class="form-floating">
+                                <select class="form-select" id="dropdown1" aria-label="Dropdown 1" [(ngModel)]="WorkId">
+                                    <option >-- Open the Work --</option>
+                                    <option *ngFor="let data of getWorkData" [value]="data.id">{{data.project_name}}</option>
+                                </select>
+                                <label for="dropdown1">Select Work</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-floating">
+                                <select class="form-select" id="dropdown2" aria-label="Dropdown 2" (change)="onChange($event)">
+                                    <option selected>-- Choose employee --</option>
+                                    <option *ngFor="let data of getEmployeeData"  [value]="data.id">{{data.emp_name}}</option>
+                                    
+                                </select>
+                                <label for="dropdown2">Select Employee</label>
+                            </div>
+                        </div>
+                    </div>
+                </div><br><br>
+                <h6 class="mb-4">Work Task Details</h6>
+                <a [routerLink]="[('/adminmaster/add_worktask')]"><button type="submit" class="btn btn-success">+ Add Task</button><br><br></a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Project</th>
+                            <th scope="col">Employee</th>
+                            <th scope="col">Assigned Task</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of getTaskData,index as i">
+                            <th scope="row">{{ i+1 }}</th>
+                            <td>{{data.workDetails.project_name}}</td>
+                            <td>{{data.empDetails.emp_name}}</td>
+                            <td>{{data.task_details}}</td>
+                            <td>{{data.due_date}}</td>
+                            <td>{{data.status}}</td>
+                            <td><button class="btn btn-outline-primary me-2" [routerLink]="['/adminmaster/editwork_task',data.id]">
+                                <i class="fas fa-edit"></i>
+                              </button>
+                              <button class="btn btn-outline-danger" (click)="delete(data.id)">
+                                <i class="fas fa-trash-alt"></i> 
+                              </button></td>
+                            <!-- <td><button type="submit" (click)="update(data.id)" class="btn btn-success">Completed</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Table End -->

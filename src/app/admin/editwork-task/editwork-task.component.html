@@ -1,0 +1,44 @@
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-8">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Add Work Task</h6>
+                <form (ngSubmit)="onSubmit()">
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Work</label>
+                        <select class="form-select mb-3" [(ngModel)]="taskData.work" name="work" aria-label="Default select example">
+                            <option selected>-- Select Work --</option>
+                            <option *ngFor="let data of getWorkData" [value]="data.id">{{data.project_name}}</option>
+                            
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Employee</label>
+                        <select class="form-select mb-3" [(ngModel)]="taskData.employee" name="employee" aria-label="Default select example">
+                            <option selected>-- Choose Employee --</option>
+                            <option *ngFor="let data of getEmployeeData" [value]="data.id">{{data.emp_name}}</option>
+            
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Work Task</label>
+                        <textarea [(ngModel)]="taskData.projecttask" placeholder="-- Enter project task --" name="projecttask" class="form-control" id="exampleInputEmail1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Due Date</label>
+                        <input type="date" [(ngModel)]="taskData.due_date" name="due_date" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Form End -->
